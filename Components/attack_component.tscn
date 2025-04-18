@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://op51rl75rdwu"]
+
+[ext_resource type="Script" uid="uid://nrkpxkt6afyk" path="res://Components/attack_component.gd" id="1_h20kn"]
+
+[node name="AttackComponent" type="Node"]
+script = ExtResource("1_h20kn")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.33
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
