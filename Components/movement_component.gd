@@ -23,8 +23,14 @@ func _physics_process(delta: float) -> void:
 func _process(delta: float) -> void:
 	if Input.is_action_pressed("left"):
 		sprite.play("run_left")
+	elif Input.is_action_pressed("right"):
+		sprite.play("run_right")
+	elif Input.is_action_pressed("up"):
+		sprite.play("run_up")
+	elif Input.is_action_pressed("down"):
+		sprite.play("run_down")
 	else:
-		sprite.play("idle_left")
+		sprite.play("idle_down")
 	
 func _ready() -> void:
 	pass
