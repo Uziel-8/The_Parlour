@@ -20,8 +20,6 @@ func _process(delta: float) -> void:
 		can_attack = false
 		timer.start()
 		print("attacked")
-	
-
 
 func _on_timer_timeout() -> void:
 	can_attack = true # Replace with function body.
