@@ -1,13 +1,15 @@
-[gd_scene load_steps=98 format=3 uid="uid://c6fvh6mqpsccm"]
+[gd_scene load_steps=102 format=3 uid="uid://c6fvh6mqpsccm"]
 
 [ext_resource type="Script" uid="uid://bwdtqqq8ouobe" path="res://Player/player.gd" id="1_btcbx"]
 [ext_resource type="Texture2D" uid="uid://eum6mqc8hx7v" path="res://Graphics/Character/SpriteSheets/2_Template_Run_Left-Sheet.png" id="2_k53q1"]
 [ext_resource type="Texture2D" uid="uid://bg4qt3ijod17g" path="res://Graphics/Character/SpriteSheets/Sword/Sword_6_Template_Attack_1_Down-Sheet.png" id="3_dkpta"]
 [ext_resource type="PackedScene" uid="uid://berbu5v6nb71e" path="res://Components/movement_component.tscn" id="3_gwnis"]
 [ext_resource type="Texture2D" uid="uid://dkfxgmnajc8mv" path="res://Graphics/Character/SpriteSheets/1_Template_Idle_Left-Sheet.png" id="3_k53q1"]
+[ext_resource type="PackedScene" uid="uid://1xtkynefax7m" path="res://Components/hurt_box_component.tscn" id="3_lfmf2"]
 [ext_resource type="Texture2D" uid="uid://00unrrr3qexh" path="res://Graphics/Character/SpriteSheets/Sword/Sword_6_Template_Attack_1_Left-Sheet.png" id="3_od3ui"]
 [ext_resource type="Texture2D" uid="uid://5fe5sk00utfp" path="res://Graphics/Character/SpriteSheets/1_Template_Idle_Down-Sheet.png" id="3_vtle1"]
 [ext_resource type="Texture2D" uid="uid://bblan0kup3fbs" path="res://Graphics/Character/SpriteSheets/2_Template_Run_Down-Sheet.png" id="4_od3ui"]
+[ext_resource type="Texture2D" uid="uid://bj4812k6r7n1l" path="res://icon.svg" id="4_pisgm"]
 [ext_resource type="Texture2D" uid="uid://c0w1pliqofxvy" path="res://Graphics/Character/SpriteSheets/Sword/Sword_6_Template_Attack_1_Right-Sheet.png" id="5_lfmf2"]
 [ext_resource type="Texture2D" uid="uid://b1au3ionvtb5d" path="res://Graphics/Character/SpriteSheets/2_Template_Run_Right-Sheet.png" id="6_00tjw"]
 [ext_resource type="Texture2D" uid="uid://dn5j68ovwkt01" path="res://Graphics/Character/SpriteSheets/1_Template_Idle_Right-Sheet.png" id="6_apopc"]
@@ -15,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://ql54yc3dlhqo" path="res://Graphics/Character/SpriteSheets/1_Template_Idle_Up-Sheet.png" id="7_5htga"]
 [ext_resource type="Texture2D" uid="uid://c73brkxusb4l2" path="res://Graphics/Character/SpriteSheets/2_Template_Run_Up-Sheet.png" id="7_x3vf3"]
 [ext_resource type="PackedScene" uid="uid://op51rl75rdwu" path="res://Components/attack_component.tscn" id="12_5htga"]
+[ext_resource type="Script" uid="uid://cuuy76kl23tef" path="res://Components/hurtbox_component.gd" id="17_b1ygp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k53q1"]
 size = Vector2(11, 4)
@@ -642,6 +645,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pisgm"]
+size = Vector2(26, 24)
+
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_btcbx")
 
@@ -656,3 +662,15 @@ sprite_frames = SubResource("SpriteFrames_00tjw")
 animation = &"attack_down"
 
 [node name="AttackComponent" parent="." instance=ExtResource("12_5htga")]
+
+[node name="HurtBoxComponent" parent="." instance=ExtResource("3_lfmf2")]
+script = ExtResource("17_b1ygp")
+
+[node name="Sprite2D" type="Sprite2D" parent="HurtBoxComponent"]
+position = Vector2(-20, -1)
+scale = Vector2(0.1875, 0.1875)
+texture = ExtResource("4_pisgm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
+position = Vector2(-19, -1)
+shape = SubResource("RectangleShape2D_pisgm")
