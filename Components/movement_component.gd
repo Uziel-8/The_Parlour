@@ -5,6 +5,7 @@ var acceleration_time: float = 0.1
 @onready var sprite = $"../AnimatedSprite2D"
 @onready var player: CharacterBody2D = get_owner()
 @export var facing: String = ""
+@export var facing2: Vector2 = Vector2(0, -1)
 @onready var attack_component = $"../AttackComponent"
 
 func _physics_process(delta: float) -> void:
@@ -32,9 +33,11 @@ func _process(delta: float) -> void:
 	elif Input.is_action_pressed("up"):
 		sprite.play("run_up")
 		facing = "up"
+		facing2 = Vector2(0, -1)
 	elif Input.is_action_pressed("down"):
 		sprite.play("run_down")
 		facing = "down"
+		facing2 = Vector2(0, 1)
 	elif !Input.is_anything_pressed() and attack_component.can_attack:
 		match facing:
 			"left":
