@@ -646,9 +646,10 @@ animations = [{
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pisgm"]
-size = Vector2(26, 24)
+size = Vector2(31, 35)
 
 [node name="Player" type="CharacterBody2D"]
+collision_mask = 2
 script = ExtResource("1_btcbx")
 
 [node name="MovementComponent" parent="." instance=ExtResource("3_gwnis")]
@@ -659,18 +660,22 @@ shape = SubResource("RectangleShape2D_k53q1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_00tjw")
-animation = &"attack_down"
+animation = &"attack_left"
+frame = 7
+frame_progress = 1.0
 
 [node name="AttackComponent" parent="." instance=ExtResource("12_5htga")]
 
 [node name="HurtBoxComponent" parent="." instance=ExtResource("3_lfmf2")]
+collision_mask = 2
 script = ExtResource("17_b1ygp")
 
 [node name="Sprite2D" type="Sprite2D" parent="HurtBoxComponent"]
+visible = false
 position = Vector2(-20, -1)
 scale = Vector2(0.1875, 0.1875)
 texture = ExtResource("4_pisgm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxComponent"]
-position = Vector2(-19, -1)
+position = Vector2(-21.5, -6.5)
 shape = SubResource("RectangleShape2D_pisgm")
