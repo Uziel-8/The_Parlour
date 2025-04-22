@@ -2,7 +2,7 @@ class_name Hitbox
 extends Area2D
 
 @onready var parent = get_owner()
-signal damaged(attack: Attack)
+#signal damaged(attack: Attack)
 
 func apply_damage(damage: int):
 	parent.health -= damage
