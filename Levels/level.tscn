@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=4 uid="uid://ctd214sgw53e5"]
 
 [ext_resource type="Texture2D" uid="uid://b1nm7nptvdf77" path="res://Graphics/TileSet/_PNG/FLSET1_ground.png" id="1_gtnvv"]
-[ext_resource type="PackedScene" uid="uid://c6fvh6mqpsccm" path="res://Player/player.tscn" id="2_wav5q"]
+[ext_resource type="PackedScene" uid="uid://ds87uigmkuc4v" path="res://Player/attack_range.tscn" id="2_wav5q"]
 [ext_resource type="Texture2D" uid="uid://45ul8y6mjr14" path="res://Graphics/TileSet/_PNG/FLSET1_bridges and fences.png" id="3_wav5q"]
 [ext_resource type="PackedScene" uid="uid://bnai4t10cwxlp" path="res://Enemies/enemy.tscn" id="4_xto7t"]
 
