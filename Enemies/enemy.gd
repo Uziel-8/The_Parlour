@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 var health: int = 100
-var exp_drop = 50
+var exp_drop = 150
 var dead: bool = false
 var damage = 20
 
