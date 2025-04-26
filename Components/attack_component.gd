@@ -2,7 +2,7 @@ extends Node
 
 @onready var sprite = $"../AnimatedSprite2D"
 @onready var player: CharacterBody2D = get_owner()
-@onready var hurtbox_component = $"../HurtBoxComponent"
+@onready var hurtbox_component = $"../HurtboxComponent"
 @onready var timer = $Timer
 @export var can_attack: bool = true
 @onready var movement_component = $"../MovementComponent"
@@ -32,7 +32,7 @@ func _process(delta: float) -> void:
 func perform_attack():
 	print("perform_attack triggered")
 	for enemy in hurtbox_component.enemies_in_range:
-		enemy.apply_damage(player.damage)
+		enemy.apply_damage(player.damage, player)
 		
 		print("attack hit ", enemy)
 

@@ -1,9 +1,10 @@
-[gd_scene load_steps=9 format=4 uid="uid://ctd214sgw53e5"]
+[gd_scene load_steps=10 format=4 uid="uid://ctd214sgw53e5"]
 
 [ext_resource type="Texture2D" uid="uid://b1nm7nptvdf77" path="res://Graphics/TileSet/_PNG/FLSET1_ground.png" id="1_gtnvv"]
 [ext_resource type="PackedScene" uid="uid://c6fvh6mqpsccm" path="res://Player/player.tscn" id="2_wav5q"]
 [ext_resource type="Texture2D" uid="uid://45ul8y6mjr14" path="res://Graphics/TileSet/_PNG/FLSET1_bridges and fences.png" id="3_wav5q"]
 [ext_resource type="PackedScene" uid="uid://bnai4t10cwxlp" path="res://Enemies/enemy.tscn" id="4_xto7t"]
+[ext_resource type="PackedScene" uid="uid://cogsh01cc4imr" path="res://UI/ui.tscn" id="5_uhyyw"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xto7t"]
 texture = ExtResource("1_gtnvv")
@@ -5861,10 +5862,11 @@ texture = ExtResource("3_wav5q")
 38:43/0 = 0
 41:38/size_in_atlas = Vector2i(2, 2)
 41:38/0 = 0
-41:38/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.6477, 4.49647, 15.1081, 4.31661, 15.6477, 7.55407, -15.8276, 7.37421)
+41:38/0/physics_layer_0/polygon_0/points = PackedVector2Array(-13.0139, 0.022095, 13.5663, 0.0441898, 13.5663, 7.00409, -13.036, 7.04828)
 
 [sub_resource type="TileSet" id="TileSet_t80w2"]
-physics_layer_0/collision_layer = 1
+physics_layer_0/collision_layer = 8
+physics_layer_0/collision_mask = 3
 sources/0 = SubResource("TileSetAtlasSource_uhyyw")
 
 [node name="Level" type="Node2D"]
@@ -5890,3 +5892,5 @@ tile_set = SubResource("TileSet_t80w2")
 
 [node name="Enemy" parent="." instance=ExtResource("4_xto7t")]
 position = Vector2(-165, -18)
+
+[node name="UI" parent="." instance=ExtResource("5_uhyyw")]

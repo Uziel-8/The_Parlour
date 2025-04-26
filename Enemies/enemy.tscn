@@ -1,11 +1,47 @@
-[gd_scene load_steps=5 format=3 uid="uid://bnai4t10cwxlp"]
+[gd_scene load_steps=10 format=3 uid="uid://bnai4t10cwxlp"]
 
 [ext_resource type="Script" uid="uid://cg1vkfrcbooi2" path="res://Enemies/enemy.gd" id="1_47qgu"]
-[ext_resource type="Texture2D" uid="uid://bj4812k6r7n1l" path="res://icon.svg" id="1_bxkaj"]
 [ext_resource type="PackedScene" uid="uid://cgo2oadeh6hlv" path="res://Components/hit_box_component.tscn" id="2_47qgu"]
+[ext_resource type="Texture2D" uid="uid://cof7qagfs1xgl" path="res://Graphics/Enemies/Orc1/Orc1_idle/orc1_idle_full.png" id="2_572h1"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_572h1"]
-size = Vector2(128, 130)
+[sub_resource type="AtlasTexture" id="AtlasTexture_rt1x0"]
+atlas = ExtResource("2_572h1")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8wvsg"]
+atlas = ExtResource("2_572h1")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gk8ng"]
+atlas = ExtResource("2_572h1")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4o6mh"]
+atlas = ExtResource("2_572h1")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_koi6q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rt1x0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8wvsg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gk8ng")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4o6mh")
+}],
+"loop": true,
+"name": &"idle_down",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_47qgu"]
+radius = 33.4996
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemies"]]
 scale = Vector2(0.3, 0.3)
@@ -13,14 +49,16 @@ collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_47qgu")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.796072, 0.173034, 0.195687, 1)
-texture = ExtResource("1_bxkaj")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(3, 3)
+sprite_frames = SubResource("SpriteFrames_koi6q")
+animation = &"idle_down"
+autoplay = "idle_down"
 
 [node name="HitBoxComponent" parent="." groups=["enemies"] instance=ExtResource("2_47qgu")]
 collision_layer = 2
 collision_mask = 13
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" groups=["enemies"]]
-position = Vector2(1, 1)
-shape = SubResource("RectangleShape2D_572h1")
+position = Vector2(-3.33333, -6.66667)
+shape = SubResource("CircleShape2D_47qgu")

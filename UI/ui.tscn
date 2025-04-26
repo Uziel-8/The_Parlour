@@ -1,0 +1,43 @@
+[gd_scene load_steps=8 format=3 uid="uid://cogsh01cc4imr"]
+
+[ext_resource type="Script" uid="uid://d0fm1joc88wol" path="res://UI/ui.gd" id="1_hat8c"]
+[ext_resource type="Texture2D" uid="uid://ios4dhe3jux8" path="res://Graphics/UI/Health_Bar_Background.png" id="2_c7tqi"]
+[ext_resource type="Texture2D" uid="uid://b8kvdmqndpbqp" path="res://Graphics/UI/Bar_Empty_for_real_this_time_x.png" id="3_cbfhl"]
+[ext_resource type="Texture2D" uid="uid://bmq1odf4ucog0" path="res://Graphics/UI/Health_Progress.png" id="4_4fiuh"]
+[ext_resource type="Texture2D" uid="uid://juaemiivifvf" path="res://Graphics/UI/Bar_Fill_real.png" id="5_h81ot"]
+[ext_resource type="Texture2D" uid="uid://d27ytkplyuelq" path="res://Graphics/UI/Mana_Bar.png" id="6_6rr40"]
+[ext_resource type="Texture2D" uid="uid://bwh5tkinyos70" path="res://Graphics/UI/Bella_Hadid_Mana_Bar.png" id="7_0w6e5"]
+
+[node name="UI" type="CanvasLayer"]
+script = ExtResource("1_hat8c")
+
+[node name="BarContainer" type="VBoxContainer" parent="."]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 2.0
+offset_top = -93.0
+offset_right = 111.0
+offset_bottom = -73.0
+grow_vertical = 0
+scale = Vector2(3, 3)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="HealthBar" type="TextureProgressBar" parent="BarContainer"]
+layout_mode = 2
+texture_under = ExtResource("2_c7tqi")
+texture_over = ExtResource("3_cbfhl")
+texture_progress = ExtResource("4_4fiuh")
+
+[node name="ManaBar" type="TextureProgressBar" parent="BarContainer"]
+layout_mode = 2
+texture_under = ExtResource("5_h81ot")
+texture_over = ExtResource("3_cbfhl")
+texture_progress = ExtResource("6_6rr40")
+
+[node name="ExpBar" type="TextureProgressBar" parent="BarContainer"]
+layout_mode = 2
+texture_under = ExtResource("5_h81ot")
+texture_over = ExtResource("3_cbfhl")
+texture_progress = ExtResource("7_0w6e5")
