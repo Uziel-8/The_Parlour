@@ -62,3 +62,12 @@ collision_mask = 13
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" groups=["enemies"]]
 position = Vector2(-3.33333, -6.66667)
 shape = SubResource("CircleShape2D_47qgu")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" groups=["enemies"]]
+position = Vector2(-3.33333, -6.66667)
+shape = SubResource("CircleShape2D_47qgu")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

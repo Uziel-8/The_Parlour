@@ -5891,6 +5891,12 @@ tile_map_data = PackedByteArray("AAACAAAAAAApACYAAAAEAAAAAAApACYAAAAGAAAAAAApACY
 tile_set = SubResource("TileSet_t80w2")
 
 [node name="Enemy" parent="." instance=ExtResource("4_xto7t")]
+position = Vector2(-62, -47)
+
+[node name="Enemy2" parent="." instance=ExtResource("4_xto7t")]
 position = Vector2(-165, -18)
+
+[node name="Enemy3" parent="." instance=ExtResource("4_xto7t")]
+position = Vector2(-100, 5)
 
 [node name="UI" parent="." instance=ExtResource("5_uhyyw")]

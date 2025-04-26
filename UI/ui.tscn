@@ -41,3 +41,11 @@ layout_mode = 2
 texture_under = ExtResource("5_h81ot")
 texture_over = ExtResource("3_cbfhl")
 texture_progress = ExtResource("7_0w6e5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Label" type="Label" parent="MarginContainer"]
+layout_mode = 2
+text = "0"
