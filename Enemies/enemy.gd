@@ -22,12 +22,5 @@ func die():
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("someone entered me!!")
 	if body.is_in_group("players"):
-		var children = body.get_children()
-		for child in children:
-			if child.name == "HitBoxComponent":
-				print("found the HitBoxComponent")
-				print(child)
-				child.apply_damage(damage, null) # Change this to not pass null eventually
-				print("attacking a player!!")
-		
-		#body.apply_damage(damage, null)
+		var hit_box_component = body.get_node("HitBoxComponent")
+		hit_box_component.apply_damage(damage, null)
