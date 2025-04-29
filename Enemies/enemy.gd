@@ -23,6 +23,10 @@ func _ready() -> void:
 		initial_state = stats.initial_state
 		exp_drop = stats.exp_drop
 
+		if stats.sprite_frames != null:
+			$AnimatedSprite2D.sprite_frames = stats.sprite_frames
+			$AnimatedSprite2D.play("idle_front")
+
 
 
 func _physics_process(delta: float) -> void:

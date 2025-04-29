@@ -29,9 +29,9 @@ var orc_types: Array[orc_data] = [
 ]
 
 func _ready() -> void:
-    add_orc_type(preload("res://Resources/OrcData/orc_grunt_data.tres"), 70)
-    add_orc_type(preload("res://Resources/OrcData/orc_warrior_data.tres"), 25)
-    add_orc_type(preload("res://Resources/OrcData/orc_chieftain_data.tres"), 5)
+    add_orc_type(preload("res://Resources/OrcData/orc_grunt_data.tres"), 50)
+    add_orc_type(preload("res://Resources/OrcData/orc_warrior_data.tres"), 30)
+    add_orc_type(preload("res://Resources/OrcData/orc_chieftain_data.tres"), 20)
 
     $Timer.wait_time = spawn_interval
     $Timer.start()

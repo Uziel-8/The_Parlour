@@ -297,8 +297,7 @@ collision_layer = 2
 collision_mask = 13
 script = ExtResource("1_47qgu")
 
-[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
-visible = false
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 scale = Vector2(3, 3)
 sprite_frames = SubResource("SpriteFrames_koi6q")
 animation = &"run_up"
