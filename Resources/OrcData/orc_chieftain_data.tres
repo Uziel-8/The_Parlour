@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="orc_data" load_steps=3 format=3 uid="uid://3xxaxanlboa1"]
+
+[ext_resource type="Script" uid="uid://bh6jxc5wos7ti" path="res://Enemies/orc_data.gd" id="1_qa1d8"]
+[ext_resource type="SpriteFrames" uid="uid://cdx8ca50ygepd" path="res://Resources/OrcSpriteFrames/orc_cheiftain_frames.tres" id="2_b20tv"]
+
+[resource]
+script = ExtResource("1_qa1d8")
+name = "orc_chieftain"
+health = 200
+damage = 40
+exp_drop = 200
+speed = 100.0
+acceleration_time = 2.5
+friction = 1.0
+follow_speed = 50
+wander_speed = 30
+follow_range = 500
+initial_state = "\"follow\""
+sprite_frames = ExtResource("2_b20tv")
+metadata/_custom_type_script = "uid://bh6jxc5wos7ti"

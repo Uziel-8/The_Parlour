@@ -3,12 +3,19 @@ extends State
 class_name EnemyWander
 
 @export var enemy: CharacterBody2D
+@onready var stats = get_parent().get_parent().stats
 @export var move_speed := 10.0
+@export var follow_range: int
 
 var player: CharacterBody2D
 
 var move_direction : Vector2
 var wander_time : float
+
+func _ready() -> void:
+	if stats:
+		move_speed = stats.wander_speed
+		follow_range = stats.follow_range
 
 func randomize_wander():
 	move_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
@@ -31,5 +38,5 @@ func Physics_Update(delta: float):
 	
 	var direction = player.global_position - enemy.global_position
 	
-	if direction.length() < 100:
-		Transitioned.emit(self, "Follow")
+	if direction.length() < follow_range:
+		Transitioned.emit(self, "follow")

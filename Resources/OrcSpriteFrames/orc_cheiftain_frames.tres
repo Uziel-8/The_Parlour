@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" load_steps=6 format=3 uid="uid://cdx8ca50ygepd"]
+
+[ext_resource type="Texture2D" uid="uid://itqmble5o2a8" path="res://Graphics/Enemies/Orc3/orc3_idle/orc3_idle_full.png" id="1_i1ruc"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v23ga"]
+atlas = ExtResource("1_i1ruc")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2k7op"]
+atlas = ExtResource("1_i1ruc")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3oo0h"]
+atlas = ExtResource("1_i1ruc")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mcw48"]
+atlas = ExtResource("1_i1ruc")
+region = Rect2(192, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v23ga")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2k7op")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3oo0h")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mcw48")
+}],
+"loop": true,
+"name": &"idle_front",
+"speed": 5.0
+}]
