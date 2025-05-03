@@ -17,5 +17,3 @@ extends Resource
 @export var initial_state = "wander"
 
 @export var sprite_frames: SpriteFrames
-
-
