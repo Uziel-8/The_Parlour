@@ -54,7 +54,5 @@ Then start the process again by making a new branch.
 
 - Need to finish adding animations to the enemies
 
-- 
-
 
 
