@@ -48,5 +48,13 @@ And BOOM your changes are now on main and are ready to be used by everyone.
 Then start the process again by making a new branch. 
 
 
+## List of changes / improvements
+
+- The attack component is too tied up in player function.
+
+- Need to finish adding animations to the enemies
+
+- 
+
 
 
