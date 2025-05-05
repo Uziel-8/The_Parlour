@@ -1,5 +1,7 @@
 extends Node
 
+# this is too tied up with the function of the player.
+
 @onready var sprite = $"../AnimatedSprite2D"
 @onready var player: CharacterBody2D = get_owner()
 @onready var hurtbox_component = $"../HurtboxComponent"

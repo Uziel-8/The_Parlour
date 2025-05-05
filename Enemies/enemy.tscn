@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://bnai4t10cwxlp"]
+[gd_scene load_steps=47 format=3 uid="uid://bnai4t10cwxlp"]
 
 [ext_resource type="Script" uid="uid://cg1vkfrcbooi2" path="res://Enemies/enemy.gd" id="1_47qgu"]
 [ext_resource type="PackedScene" uid="uid://cgo2oadeh6hlv" path="res://Components/hit_box_component.tscn" id="2_47qgu"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://jb5gosdqbjjl" path="res://Scripts/state_machine.gd" id="4_rt1x0"]
 [ext_resource type="Script" uid="uid://dmk6dlspaudkh" path="res://Scripts/EnemyWanderState.gd" id="5_8wvsg"]
 [ext_resource type="Script" uid="uid://gp6cc5ko1n7b" path="res://Scripts/EnemyFollowState.gd" id="6_8wvsg"]
+[ext_resource type="Script" uid="uid://bk1b0cvxjmksc" path="res://Enemies/EnemyAttackState.gd" id="8_4o6mh"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rt1x0"]
 atlas = ExtResource("2_572h1")
@@ -332,5 +333,10 @@ metadata/_custom_type_script = "uid://dmk6dlspaudkh"
 script = ExtResource("6_8wvsg")
 enemy = NodePath("../..")
 metadata/_custom_type_script = "uid://gp6cc5ko1n7b"
+
+[node name="Attack" type="Node" parent="StateMachine" node_paths=PackedStringArray("enemy")]
+script = ExtResource("8_4o6mh")
+enemy = NodePath("../..")
+metadata/_custom_type_script = "uid://bk1b0cvxjmksc"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

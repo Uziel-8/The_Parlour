@@ -1,19 +1,19 @@
 class_name orc_data
 extends Resource
 
-@export var name := "orc"
 
-@export var health := 100
-@export var damage := 20
-@export var exp_drop := 50
+@export var health: int = 100
+@export var damage: int = 20
+@export var attack_range: int = 30
+@export var exp_drop: int = 50
 
-@export var speed := 70.0
-@export var acceleration_time := 2.5
-@export var friction := 1.0
-@export var follow_speed := 30
-@export var wander_speed := 20
+@export var speed: float =   70.0
+@export var acceleration_time: float = 2.5
+@export var friction: float = 1.0
+@export var follow_speed: int = 30
+@export var wander_speed: int = 20
 
-@export var follow_range := 100
-@export var initial_state = "wander"
+@export var follow_range: int = 100
+@export var initial_state: String = "wander"
 
 @export var sprite_frames: SpriteFrames

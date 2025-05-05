@@ -13,6 +13,7 @@ var sprite = get_child(0)
 @export var stats: orc_data
 
 func _ready() -> void:
+	# what is the point in doing this if in the state components we are just grabbing the whole stats property directly?
 	if stats: 
 		print("the orc_data attached to the enemy is: ", orc_data)
 		health = stats.health
