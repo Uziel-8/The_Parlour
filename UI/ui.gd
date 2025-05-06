@@ -12,4 +12,3 @@ func _process(delta: float) -> void:
 	mana_bar.value = player.mana
 	exp_bar.value = player.exp
 	level_label.text = str(player.level)
-	

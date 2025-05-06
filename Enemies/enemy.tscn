@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://bnai4t10cwxlp"]
+[gd_scene load_steps=50 format=3 uid="uid://bnai4t10cwxlp"]
 
 [ext_resource type="Script" uid="uid://cg1vkfrcbooi2" path="res://Enemies/enemy.gd" id="1_47qgu"]
 [ext_resource type="PackedScene" uid="uid://cgo2oadeh6hlv" path="res://Components/hit_box_component.tscn" id="2_47qgu"]
@@ -8,6 +8,9 @@
 [ext_resource type="Script" uid="uid://dmk6dlspaudkh" path="res://Scripts/EnemyWanderState.gd" id="5_8wvsg"]
 [ext_resource type="Script" uid="uid://gp6cc5ko1n7b" path="res://Scripts/EnemyFollowState.gd" id="6_8wvsg"]
 [ext_resource type="Script" uid="uid://bk1b0cvxjmksc" path="res://Enemies/EnemyAttackState.gd" id="8_4o6mh"]
+[ext_resource type="Texture2D" uid="uid://ios4dhe3jux8" path="res://Graphics/UI/Health_Bar_Background.png" id="9_t8uwx"]
+[ext_resource type="Texture2D" uid="uid://b8kvdmqndpbqp" path="res://Graphics/UI/Bar_Empty_for_real_this_time_x.png" id="10_tligp"]
+[ext_resource type="Texture2D" uid="uid://bmq1odf4ucog0" path="res://Graphics/UI/Health_Progress.png" id="11_ud0f3"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rt1x0"]
 atlas = ExtResource("2_572h1")
@@ -338,5 +341,18 @@ metadata/_custom_type_script = "uid://gp6cc5ko1n7b"
 script = ExtResource("8_4o6mh")
 enemy = NodePath("../..")
 metadata/_custom_type_script = "uid://bk1b0cvxjmksc"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_left = -53.3333
+offset_top = -63.3333
+offset_right = 54.6667
+offset_bottom = -60.3333
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="VBoxContainer"]
+layout_mode = 2
+value = 50.0
+texture_under = ExtResource("9_t8uwx")
+texture_over = ExtResource("10_tligp")
+texture_progress = ExtResource("11_ud0f3")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -10,6 +10,7 @@ var wander_speed: int
 var initial_state: String
 var sprite = get_child(0)
 
+@onready var health_bar = $VBoxContainer/TextureProgressBar
 @export var stats: orc_data
 
 func _ready() -> void:
@@ -35,6 +36,9 @@ func _physics_process(delta: float) -> void:
 
 
 func _process(delta: float) -> void:
+	if stats:
+		health_bar.max_value = stats.health
+	health_bar.value = health
 	die()
 
 func die():
