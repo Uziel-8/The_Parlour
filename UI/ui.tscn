@@ -49,3 +49,7 @@ offset_bottom = 40.0
 [node name="Label" type="Label" parent="MarginContainer"]
 layout_mode = 2
 text = "0"
+
+[node name="HSplitContainer" type="HSplitContainer" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0

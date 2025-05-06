@@ -2,8 +2,13 @@ extends CharacterBody2D
 
 var level = 1
 var damage = 50
+
 var health = 100
+var max_health: int
+
 var mana = 100
+var max_mana: int
+
 var exp = 0
 var level_threshold = 100
 

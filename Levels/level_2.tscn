@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=4 uid="uid://dlso0ryj0gnbb"]
+[gd_scene load_steps=6 format=4 uid="uid://dlso0ryj0gnbb"]
 
 [ext_resource type="Texture2D" uid="uid://sku270fmy6tl" path="res://Graphics/TileSet/Craftpix tilesets/House/exterior.png" id="1_ll1bl"]
 [ext_resource type="PackedScene" uid="uid://c6fvh6mqpsccm" path="res://Player/player.tscn" id="2_arsda"]
+[ext_resource type="PackedScene" uid="uid://cogsh01cc4imr" path="res://UI/ui.tscn" id="3_arsda"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kbe2v"]
 texture = ExtResource("1_ll1bl")
@@ -758,3 +759,5 @@ tile_set = SubResource("TileSet_arsda")
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 zoom = Vector2(2.5, 2.5)
+
+[node name="UI" parent="." instance=ExtResource("3_arsda")]
