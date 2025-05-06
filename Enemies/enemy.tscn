@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://bnai4t10cwxlp"]
+[gd_scene load_steps=51 format=3 uid="uid://bnai4t10cwxlp"]
 
 [ext_resource type="Script" uid="uid://cg1vkfrcbooi2" path="res://Enemies/enemy.gd" id="1_47qgu"]
 [ext_resource type="PackedScene" uid="uid://cgo2oadeh6hlv" path="res://Components/hit_box_component.tscn" id="2_47qgu"]
@@ -11,6 +11,7 @@
 [ext_resource type="Texture2D" uid="uid://ios4dhe3jux8" path="res://Graphics/UI/Health_Bar_Background.png" id="9_t8uwx"]
 [ext_resource type="Texture2D" uid="uid://b8kvdmqndpbqp" path="res://Graphics/UI/Bar_Empty_for_real_this_time_x.png" id="10_tligp"]
 [ext_resource type="Texture2D" uid="uid://bmq1odf4ucog0" path="res://Graphics/UI/Health_Progress.png" id="11_ud0f3"]
+[ext_resource type="Script" uid="uid://d3v1ne88p76d0" path="res://Scripts/enemy_movement_component.gd" id="12_tligp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rt1x0"]
 atlas = ExtResource("2_572h1")
@@ -354,5 +355,8 @@ value = 50.0
 texture_under = ExtResource("9_t8uwx")
 texture_over = ExtResource("10_tligp")
 texture_progress = ExtResource("11_ud0f3")
+
+[node name="EnemyMovementComponent" type="Node" parent="."]
+script = ExtResource("12_tligp")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

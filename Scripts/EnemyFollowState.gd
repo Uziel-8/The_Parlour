@@ -26,9 +26,10 @@ func Physics_Update(delta: float):
 	
 	if direction.length() > 25:
 		enemy.velocity = direction.normalized() * move_speed
+		enemy.move_direction = direction
 	else:
 		enemy.velocity = Vector2()
-
+	
 	if direction.length() > follow_range:
 		Transitioned.emit(self, "wander")
 	elif direction.length() < attack_range:

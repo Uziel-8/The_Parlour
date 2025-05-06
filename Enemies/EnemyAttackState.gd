@@ -28,7 +28,7 @@ func Physics_Update(delta: float):
 
 	var direction = player.global_position - enemy.global_position
 	if direction.length() < attack_range:
-		print("Die fool!!!!")
+		pass
 	elif direction.length() > attack_range:
 		print("The player has left my attack range ;_;")
 		Transitioned.emit(self, "follow")

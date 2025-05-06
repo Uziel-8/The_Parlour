@@ -20,6 +20,7 @@ func _ready() -> void:
 func randomize_wander():
 	move_direction = Vector2(randf_range(-1, 1), randf_range(-1, 1)).normalized()
 	wander_time = randf_range(1, 3)
+	enemy.move_direction = move_direction
 
 func Enter():
 	player = get_tree().get_first_node_in_group("players")
@@ -32,6 +33,7 @@ func Update(delta: float):
 	else:
 		randomize_wander()
 
+
 func Physics_Update(delta: float):
 	if enemy:
 		enemy.velocity = move_direction * move_speed
@@ -40,3 +42,18 @@ func Physics_Update(delta: float):
 	
 	if direction.length() < follow_range:
 		Transitioned.emit(self, "follow")
+	
+	var normalized_direction = direction.normalized()
+	
+	#if abs(move_direction.x) > abs(move_direction.y):
+		## Horizontal movement
+		#if move_direction.x > 0:
+			#enemy.sprite.play("run_right")
+		#else:
+			#enemy.sprite.play("run_left")
+	#else:
+		## Vertical movement
+		#if move_direction.y > 0:
+			#enemy.sprite.play("run_down")
+		#else:
+			#enemy.sprite.play("run_up")

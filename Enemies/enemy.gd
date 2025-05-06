@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+class_name Enemy
+
 var health: int = 100
 var exp_drop = 150
 var dead: bool = false
@@ -8,10 +10,11 @@ var follow_range: int
 var follow_speed: int
 var wander_speed: int
 var initial_state: String
-var sprite = get_child(0)
+var move_direction : Vector2
 
 @onready var health_bar = $VBoxContainer/TextureProgressBar
 @export var stats: orc_data
+@onready var sprite = $AnimatedSprite2D
 
 func _ready() -> void:
 	# what is the point in doing this if in the state components we are just grabbing the whole stats property directly?
@@ -26,8 +29,8 @@ func _ready() -> void:
 		exp_drop = stats.exp_drop
 
 		if stats.sprite_frames != null:
-			$AnimatedSprite2D.sprite_frames = stats.sprite_frames
-			$AnimatedSprite2D.play("idle_front")
+			sprite.sprite_frames = stats.sprite_frames
+			sprite.play("idle_front")
 
 
 

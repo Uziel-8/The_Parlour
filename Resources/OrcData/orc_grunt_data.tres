@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_5qvxl")
-name = "orc grunt"
 health = 50
 damage = 10
+attack_range = 30
 exp_drop = 20
 speed = 30.0
 acceleration_time = 2.5
