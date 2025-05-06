@@ -37,7 +37,7 @@ Then once the rebase is done, switch to main:
 `git switch main`
 
 Then run:
-`git merge main`
+`git merge your-branch-name-here`
 This should be able to merge automatically easily and smoothly as the rebase will have lubed your throbbing branch up. 
 
 The once your branch is merged on main, run:

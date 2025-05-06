@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=4 uid="uid://dlso0ryj0gnbb"]
+[gd_scene load_steps=6 format=4 uid="uid://dt8exe0wn35gs"]
 
 [ext_resource type="Texture2D" uid="uid://sku270fmy6tl" path="res://Graphics/TileSet/Craftpix tilesets/House/exterior.png" id="1_ll1bl"]
 [ext_resource type="PackedScene" uid="uid://c6fvh6mqpsccm" path="res://Player/player.tscn" id="2_arsda"]
