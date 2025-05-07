@@ -4,13 +4,14 @@ var level = 1
 var damage = 50
 
 var health = 100
-var max_health: int
+var max_health: int = 100
 
 var mana = 100
-var max_mana: int
+var max_mana: int = 100
 
 var exp = 0
 var level_threshold = 100
+
 
 
 
@@ -30,7 +31,9 @@ func die():
 func level_up():
 	level += 1
 	damage = 50 + (level - 1) * 5
+	max_health = 100 + (level - 1) * 10
 	health = 100 + (level - 1) * 10
+
 	mana = 100 + (level - 1) * 10
 	exp = 0
-	level_threshold = level_threshold * 20
+	level_threshold = level_threshold * 2
