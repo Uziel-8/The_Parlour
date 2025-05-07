@@ -5,9 +5,9 @@
 
 [resource]
 script = ExtResource("1_qa1d8")
-name = "orc_chieftain"
 health = 200
 damage = 40
+attack_range = 30
 exp_drop = 200
 speed = 100.0
 acceleration_time = 2.5

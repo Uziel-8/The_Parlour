@@ -8,6 +8,8 @@ extends CanvasLayer
 
 
 func _process(delta: float) -> void:
+	if health_bar.value != player.health:
+		print("I almost certainly just took damage ;_;")
 	health_bar.value = player.health
 	health_bar.max_value = player.max_health
 	
