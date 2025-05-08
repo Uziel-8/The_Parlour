@@ -11,6 +11,7 @@ func apply_damage(damage: int, source):
 	
 	
 	
+	# not sure how I feel about holding this logic here. 
 	if source != null:
 		if parent.health <= 0 and source.exp != null:
 			source.exp += parent.exp_drop

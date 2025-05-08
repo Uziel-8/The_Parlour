@@ -1,6 +1,7 @@
 extends Area2D
 
 @onready var hurtbox_parent: CharacterBody2D = get_owner()
+# change this to take the facing property strate from parent. 
 @onready var movement_component = $"../MovementComponent"
 var enemies_in_range = []
 
@@ -40,10 +41,15 @@ func update_attack_direction():
 
 
 func _on_area_entered(area: Area2D) -> void:
+	# we could think about making HitboxComponent a class. Could we then specify that area is a HitboxComponent?
 	print("area entered", area)
+	# will have to change the target group to 'damageable' or something
 	if area.is_in_group("enemies"):
 		print("found an enemy")
 		if not enemies_in_range.has(area):
+			# we are assuming here that the area we have detected is a hitbox. 
+			# if we have set up our layers properly then it will be, but should also check for a take_damage function.
+			# I haven't decided whether this check should be in the attack_component or here. 
 			enemies_in_range.append(area)
 	else:
 		print("I come in peace")
