@@ -1,29 +1,42 @@
 extends Node
 
-# this is too tied up with the function of the player.
+# Is this eventually going to handle ranged attacks? Or we make a separate component?
 
-@onready var sprite = $"../AnimatedSprite2D"
+# this is too tied up with the function of the player. NOT ANYMORE BITCH!!!
+
+# @onready var sprite = $"../AnimatedSprite2D"
 @onready var player: CharacterBody2D = get_owner()
-@onready var hurtbox_component = $"../HurtboxComponent"
+# @onready var hurtbox_component = $"../HurtboxComponent"
 @onready var timer = $Timer
-@export var can_attack: bool = true
-@onready var movement_component = $"../MovementComponent"
+# @onready var movement_component = $"../MovementComponent"
+
+# Think about whether these two should live in the entities or here
 @export var is_attacking = false
+@export var can_attack: bool = true
+
+@onready var attacking_entity: CharacterBody2D = get_owner()
+@onready var facing: Vector2 = attacking_entity.facing
+@onready var sprite = attacking_entity.sprite
+@onready var hurtbox_component = attacking_entity.hurtbox_component
+
+
+func _ready() -> void:
+	pass
 
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("left_click") and can_attack:
-		match movement_component.facing:
-			"left":
+		match facing:
+			Vector2(-1, 0):
 				sprite.play("attack_left")
 				is_attacking = true
-			"right":
+			Vector2(1, 0):
 				sprite.play("attack_right")
 				is_attacking = true
-			"down":
+			Vector2(0, 1):
 				sprite.play("attack_down")
 				is_attacking = true
-			"up":
+			Vector2(0, -1):
 				sprite.play("attack_up")
 				is_attacking = true
 		can_attack = false

@@ -16,9 +16,12 @@ var facing: String
 @onready var health_bar = $VBoxContainer/TextureProgressBar
 @export var stats: orc_data
 @onready var sprite = $AnimatedSprite2D
+@onready var hurtbox_component = $HurtboxComponent
 
 func _ready() -> void:
 	# what is the point in doing this if in the state components we are just grabbing the whole stats property directly?
+	# I will look to make all stats bundled into the resource and get rid of this.
+	# Rename orc_stats resource to just be EnemyStats (or even just stats)
 	if stats: 
 		print("the orc_data attached to the enemy is: ", orc_data)
 		health = stats.health
@@ -44,14 +47,16 @@ func _process(delta: float) -> void:
 	if stats:
 		health_bar.max_value = stats.health
 	health_bar.value = health
+	# This is no good. The new regime demands that entities hold no logic. 
 	die()
 
+# At some point remove death logic from the enemy.
 func die():
 	if health <= 0:
 		queue_free()
 	
 
-
+# Refector this into a hurtbox_component
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	print("someone entered me!!")
 	if body.is_in_group("players"):
