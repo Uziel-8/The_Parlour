@@ -359,4 +359,9 @@ texture_progress = ExtResource("11_ud0f3")
 [node name="EnemyMovementComponent" type="Node" parent="."]
 script = ExtResource("12_tligp")
 
+[node name="ActualCollision" type="CollisionShape2D" parent="." groups=["enemies"]]
+position = Vector2(0, -3.33334)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_47qgu")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

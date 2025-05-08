@@ -19,8 +19,8 @@
 [ext_resource type="PackedScene" uid="uid://dqv0ijudyg28l" path="res://Components/hurtbox_component.tscn" id="16_b1ygp"]
 [ext_resource type="PackedScene" uid="uid://cgo2oadeh6hlv" path="res://Components/hit_box_component.tscn" id="19_o28un"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k53q1"]
-size = Vector2(11, 4)
+[sub_resource type="CircleShape2D" id="CircleShape2D_b1ygp"]
+radius = 3.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ntwt4"]
 atlas = ExtResource("3_dkpta")
@@ -658,8 +658,8 @@ script = ExtResource("1_btcbx")
 [node name="MovementComponent" parent="." instance=ExtResource("3_gwnis")]
 
 [node name="EnvironmentCollision" type="CollisionShape2D" parent="."]
-position = Vector2(-1, 9)
-shape = SubResource("RectangleShape2D_k53q1")
+position = Vector2(0, 9)
+shape = SubResource("CircleShape2D_b1ygp")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_00tjw")
