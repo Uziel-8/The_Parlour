@@ -14,8 +14,6 @@ var level_threshold = 100
 
 
 
-
-
 func _process(delta: float) -> void:
 	if health <= 0:
 		die()

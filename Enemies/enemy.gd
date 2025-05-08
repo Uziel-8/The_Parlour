@@ -11,6 +11,7 @@ var follow_speed: int
 var wander_speed: int
 var initial_state: String
 var move_direction : Vector2
+var facing: String
 
 @onready var health_bar = $VBoxContainer/TextureProgressBar
 @export var stats: orc_data
@@ -31,6 +32,7 @@ func _ready() -> void:
 		if stats.sprite_frames != null:
 			sprite.sprite_frames = stats.sprite_frames
 			sprite.play("idle_front")
+			facing = "front"
 
 
 
