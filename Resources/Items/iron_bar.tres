@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Item" load_steps=4 format=3 uid="uid://bgsqhaonra1wd"]
+
+[ext_resource type="Script" uid="uid://ymj5hocrrs3d" path="res://Scripts/Item.gd" id="1_niy0o"]
+[ext_resource type="Texture2D" uid="uid://db08kmrm2vq5j" path="res://Graphics/Items/Crafting Materials/Iron Bar.png" id="2_l3trh"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bt2dj"]
+atlas = ExtResource("2_l3trh")
+
+[resource]
+script = ExtResource("1_niy0o")
+item_name = "Iron bar"
+texture = SubResource("AtlasTexture_bt2dj")
+metadata/_custom_type_script = "uid://ymj5hocrrs3d"

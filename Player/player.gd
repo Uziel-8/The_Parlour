@@ -12,6 +12,7 @@ var max_mana: int = 100
 var exp = 0
 var level_threshold = 100
 
+@onready var inventory = $inventory
 
 
 func _process(delta: float) -> void:
@@ -21,6 +22,7 @@ func _process(delta: float) -> void:
 		level_up()
 		exp = 0
 		level_threshold = level_threshold * 1.2
+	#print(inventory, "Inventory!")
 
 func die():
 	#queue_free()

@@ -1,0 +1,40 @@
+[gd_scene load_steps=7 format=3 uid="uid://vtmct6njumdm"]
+
+[ext_resource type="Texture2D" uid="uid://37n13f11lbbw" path="res://Graphics/Items/Chest/chest_empty_open_anim_f0.png" id="1_7ujht"]
+[ext_resource type="Script" uid="uid://nov47c4imyro" path="res://Objects/chest.gd" id="1_76xd1"]
+[ext_resource type="Texture2D" uid="uid://cweuc67p2uotf" path="res://Graphics/Items/Chest/chest_empty_open_anim_f1.png" id="2_76xd1"]
+[ext_resource type="Texture2D" uid="uid://c3lfwragotaa8" path="res://Graphics/Items/Chest/chest_empty_open_anim_f2.png" id="3_3l2ba"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2upk8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_7ujht")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_76xd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_3l2ba")
+}],
+"loop": true,
+"name": &"open",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7ujht"]
+radius = 37.054
+
+[node name="Chest" type="Area2D"]
+script = ExtResource("1_76xd1")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_2upk8")
+animation = &"open"
+frame_progress = 0.95914
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7ujht")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://cwoext7ylsjab"]
+
+[ext_resource type="Script" uid="uid://ymj5hocrrs3d" path="res://Scripts/Item.gd" id="1_7pma7"]
+[ext_resource type="Texture2D" uid="uid://c6vb81y8tg04a" path="res://Graphics/Items/Crafting Materials/Coal.png" id="2_thdfd"]
+
+[resource]
+script = ExtResource("1_7pma7")
+item_name = "Coal"
+texture = ExtResource("2_thdfd")
+metadata/_custom_type_script = "uid://ymj5hocrrs3d"
