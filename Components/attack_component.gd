@@ -1,57 +1,76 @@
 extends Node
 
-# Is this eventually going to handle ranged attacks? Or we make a separate component?
-
 # this is too tied up with the function of the player. NOT ANYMORE BITCH!!!
 
 # @onready var sprite = $"../AnimatedSprite2D"
-@onready var player: CharacterBody2D = get_owner()
-# @onready var hurtbox_component = $"../HurtboxComponent"
-@onready var timer = $Timer
+# @onready var player: CharacterBody2D = get_owner()
+# @onready var hurtbox = $"../HurtboxComponent"
 # @onready var movement_component = $"../MovementComponent"
 
-# Think about whether these two should live in the entities or here
-@export var is_attacking = false
-@export var can_attack: bool = true
 
-@onready var attacking_entity: CharacterBody2D = get_owner()
+@onready var attacking_entity = get_owner()
 @onready var facing: Vector2 = attacking_entity.facing
-@onready var sprite = attacking_entity.sprite
-@onready var hurtbox_component = attacking_entity.hurtbox_component
 
+@export var hurtbox_component_path: NodePath 
+@onready var hurtbox = get_node(hurtbox_component_path)
+
+@export var trigger_source_path: NodePath
+
+@export var movement_component_path: NodePath
+@onready var movement_component = get_node(movement_component_path)
+
+@onready var timer = $Timer
+
+
+# Think about whether these two should live in the entities or here
+var is_attacking = false
+var can_attack: bool = true
+
+var attack_directions: Dictionary = {
+	Vector2.LEFT: "attack_left",
+	Vector2.RIGHT: "attack_right",
+	Vector2.DOWN: "attack_down",
+	Vector2.UP: "attack_up"
+}
+
+func is_ready_to_attack() -> bool:
+	return can_attack
 
 func _ready() -> void:
-	pass
+	var trigger_source = get_node_or_null(trigger_source_path)
 
+	if trigger_source:
+		trigger_source.basic_attack.connect(perform_attack)
+	else:
+		print("no trigger source has been attached to this component ;_;")
+	
 
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("left_click") and can_attack:
-		match facing:
-			Vector2(-1, 0):
-				sprite.play("attack_left")
-				is_attacking = true
-			Vector2(1, 0):
-				sprite.play("attack_right")
-				is_attacking = true
-			Vector2(0, 1):
-				sprite.play("attack_down")
-				is_attacking = true
-			Vector2(0, -1):
-				sprite.play("attack_up")
-				is_attacking = true
-		can_attack = false
-		perform_attack()
-		timer.start()
-		print("attacked")
+	pass
 
 func perform_attack():
 	print("perform_attack triggered")
-	for enemy in hurtbox_component.enemies_in_range:
-		enemy.apply_damage(player.damage, player)
+	if can_attack:
+		print("I can attack!!")
+		can_attack = false
+		var attack_animation = attack_directions.get(attacking_entity.facing)
+		attacking_entity.sprite.play(attack_animation)
+		is_attacking = true
+		print("the attack cooldown of the attacker is: ", attacking_entity.attack_cooldown)
+		timer.wait_time = attacking_entity.attack_cooldown
+		print("the cooldown of the timer is: ", timer.wait_time)
+		timer.start()
+		if len(hurtbox.enemies_in_range) == 0:
+			print("there are no enemies in range ;_;")
+		for enemy in hurtbox.enemies_in_range:
+			print("applying damage to enemies in range.")
+			enemy.apply_damage(attacking_entity.damage, attacking_entity)
 		
-		print("attack hit ", enemy)
+			print("attack hit ", enemy)
+	else:
+		print("I cannot attack right now ;_;")
 
 func _on_timer_timeout() -> void:
-	can_attack = true # Replace with function body.
+	can_attack = true 
 	is_attacking = false
 	

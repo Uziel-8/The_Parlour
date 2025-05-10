@@ -9,6 +9,7 @@ health = 200
 damage = 40
 attack_range = 30
 exp_drop = 200
+attack_cooldown = 2.0
 speed = 100.0
 acceleration_time = 2.5
 friction = 1.0

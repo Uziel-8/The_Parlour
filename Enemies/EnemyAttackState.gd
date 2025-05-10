@@ -2,11 +2,15 @@ extends State
 
 class_name EnemyAttack
 
+signal basic_attack
+
 @export var enemy: CharacterBody2D
 @export var move_speed := 30 
 @export var attack_range: int
 var player: CharacterBody2D
 @onready var stats = get_parent().get_parent().stats
+@export var attack_component_path: NodePath
+@onready var attack_component = get_node(attack_component_path)
 
 
 func _ready() -> void:
@@ -27,8 +31,10 @@ func Physics_Update(delta: float):
 		return
 
 	var direction = player.global_position - enemy.global_position
-	if direction.length() < attack_range:
-		pass
+	if direction.length() < attack_range and attack_component.is_ready_to_attack():
+		print("player in attack range!!! Die fool!!!!")
+		basic_attack.emit()
+		enemy.velocity = Vector2()
 	elif direction.length() > attack_range:
 		print("The player has left my attack range ;_;")
 		Transitioned.emit(self, "follow")

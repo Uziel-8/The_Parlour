@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://c6fvh6mqpsccm"]
+[gd_scene load_steps=104 format=3 uid="uid://c6fvh6mqpsccm"]
 
 [ext_resource type="Script" uid="uid://bwdtqqq8ouobe" path="res://Player/player.gd" id="1_btcbx"]
 [ext_resource type="Texture2D" uid="uid://eum6mqc8hx7v" path="res://Graphics/Character/SpriteSheets/2_Template_Run_Left-Sheet.png" id="2_k53q1"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://c73brkxusb4l2" path="res://Graphics/Character/SpriteSheets/2_Template_Run_Up-Sheet.png" id="7_x3vf3"]
 [ext_resource type="PackedScene" uid="uid://op51rl75rdwu" path="res://Components/attack_component.tscn" id="12_5htga"]
 [ext_resource type="PackedScene" uid="uid://dqv0ijudyg28l" path="res://Components/hurtbox_component.tscn" id="16_b1ygp"]
+[ext_resource type="PackedScene" uid="uid://6q7y5252tuh4" path="res://Components/input_component.tscn" id="19_n471f"]
 [ext_resource type="PackedScene" uid="uid://cgo2oadeh6hlv" path="res://Components/hit_box_component.tscn" id="19_o28un"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b1ygp"]
@@ -668,6 +669,9 @@ frame = 7
 frame_progress = 1.0
 
 [node name="AttackComponent" parent="." instance=ExtResource("12_5htga")]
+hurtbox_component_path = NodePath("../HurtboxComponent")
+trigger_source_path = NodePath("../InputComponent")
+movement_component_path = NodePath("../MovementComponent")
 
 [node name="HurtboxComponent" parent="." instance=ExtResource("16_b1ygp")]
 collision_mask = 2
@@ -682,11 +686,13 @@ texture = ExtResource("4_pisgm")
 position = Vector2(-21.5, -6.5)
 shape = SubResource("RectangleShape2D_pisgm")
 
-[node name="HitBoxComponent" parent="." instance=ExtResource("19_o28un")]
+[node name="HitBoxComponent" parent="." groups=["damageable"] instance=ExtResource("19_o28un")]
 position = Vector2(-1, 9)
 collision_mask = 54
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" groups=["damageable"]]
 position = Vector2(1.5, -8.5)
 rotation = -1.57079
 shape = SubResource("RectangleShape2D_n471f")
+
+[node name="InputComponent" parent="." instance=ExtResource("19_n471f")]
