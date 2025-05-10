@@ -1,3 +1,6 @@
+#####This is all shit, just leaving it here so i don't break anything
+
+
 #extends Node
 #
 #class_name Items

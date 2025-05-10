@@ -2,8 +2,8 @@ extends Area2D
 
 @export var is_open := false
 @onready var sprite = $AnimatedSprite2D
-@onready var player = get_node(".")
-@onready var inventory: Inventory = player.find_child("inventory")
+@onready var player = get_parent().find_child("Player")
+#@onready var inventory: Inventory = player.find_child("inventory")
 var coal = preload("res://Resources/Items/coal.tres")
 
 func _on_body_entered(body: Node2D) -> void:
@@ -18,9 +18,9 @@ func _on_body_exited(body: Node2D) -> void:
 
 
 func _process(delta: float) -> void:
-	print(inventory)
+	#print(player.inventory)
 	if Input.is_action_just_pressed("interact") and not is_open:
 		sprite.play("open")
 		is_open = true
-		#inventory.add_item(COAL)
+		player.inventory.add_item(coal)
 		

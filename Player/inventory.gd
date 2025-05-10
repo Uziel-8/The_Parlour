@@ -13,10 +13,8 @@ func _ready() -> void:
 	pass
 
 func _process(delta: float) -> void:
-	if Input.is_action_pressed("inventory"):
-		print(items[0])
-		print(items[1])
-		print(items[2])
+	if Input.is_action_just_pressed("inventory"):
+		print(items)
 
 func add_item(item: Item):
 	items.append(item)
