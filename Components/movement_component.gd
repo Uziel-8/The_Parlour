@@ -1,26 +1,22 @@
 extends Node
 
-var max_speed: float = 100
-var acceleration_time: float = 0.1
-@onready var sprite = $"../AnimatedSprite2D"
-@onready var parent_entity: CharacterBody2D = get_owner()
-@export var facing_string: String = ""
+# @export var facing_string: String = ""
 # @onready var can_attack = parent_entity.can_attack
 # @export var facing: Vector2 = parent_entity.facing 
-@onready var attack_component = $"../AttackComponent"
-@export var input_component_path: NodePath
-@onready var input_component = get_node(input_component_path)
-var move_direction: Vector2 = Vector2.ZERO
-var received_input_this_frame: bool = false
 # @onready var attack_component = parent_entity.attack_component
 
-var movement_directions: Dictionary = {
-	Vector2.LEFT: "run_left",
-	Vector2.RIGHT: "run_right",
-	Vector2.DOWN: "run_down",
-	Vector2.UP: "run_up"
-}
-var dict: Dictionary = {
+@onready var sprite = $"../AnimatedSprite2D"
+@onready var attack_component = $"../AttackComponent"
+@onready var parent_entity: CharacterBody2D = get_owner()
+@export var input_component_path: NodePath
+@onready var input_component = get_node(input_component_path)
+
+var max_speed: float = 100
+var acceleration_time: float = 0.1
+var move_direction: Vector2 = Vector2.ZERO
+var received_input_this_frame: bool = false
+
+var directions_dict: Dictionary = {
 	Vector2.LEFT: "left",
 	Vector2.RIGHT: "right",
 	Vector2.DOWN: "down",
@@ -56,7 +52,6 @@ func _physics_process(delta: float) -> void:
 	if received_input_this_frame:
 
 		var velocity = parent_entity.velocity
-		
 		velocity = velocity.move_toward(move_direction*max_speed, (1.0 / acceleration_time) * delta * max_speed)
 		
 		if move_direction.y && sign(move_direction.y) != sign(velocity.y):
@@ -68,7 +63,7 @@ func _physics_process(delta: float) -> void:
 		parent_entity.velocity = velocity
 
 		var cardinal_direction = get_cardinal_direction(move_direction)
-		var direction_string = "run_" + dict.get(cardinal_direction)
+		var direction_string = "run_" + directions_dict.get(cardinal_direction)
 
 		if parent_entity.sprite.animation != direction_string:
 			print("changing move animation")
@@ -77,7 +72,7 @@ func _physics_process(delta: float) -> void:
 		parent_entity.move_and_slide()
 	elif attack_component.can_attack:
 		var cardinal_direction = get_cardinal_direction(move_direction)
-		var direction_string = "idle_" + dict.get(cardinal_direction)		
+		var direction_string = "idle_" + directions_dict.get(cardinal_direction)		
 		if parent_entity.sprite.animation != direction_string:
 			parent_entity.sprite.play(direction_string)
 		parent_entity.velocity = parent_entity.velocity.move_toward(Vector2.ZERO, (1.0 / acceleration_time) * delta)

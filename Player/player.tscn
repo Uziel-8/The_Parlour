@@ -673,6 +673,7 @@ frame_progress = 1.0
 hurtbox_component_path = NodePath("../HurtboxComponent")
 trigger_source_path = NodePath("../InputComponent")
 movement_component_path = NodePath("../MovementComponent")
+sprite_path = NodePath("../AnimatedSprite2D")
 
 [node name="HurtboxComponent" parent="." instance=ExtResource("16_b1ygp")]
 collision_mask = 2
