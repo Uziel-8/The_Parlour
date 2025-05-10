@@ -15,6 +15,7 @@ var level_threshold = 100
 
 var facing: Vector2 = Vector2.DOWN
 
+# Doing this is trash and leads to bugs. If a component needs another component it should always get it directly.
 @onready var attack_component = $AttackComponent
 @onready var movement_component = $MovementComponent
 @onready var hurtbox_component = $HurtboxComponent

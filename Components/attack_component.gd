@@ -19,6 +19,9 @@ extends Node
 @export var movement_component_path: NodePath
 @onready var movement_component = get_node(movement_component_path)
 
+@export var sprite_path: NodePath
+@onready var sprite = get_node(sprite_path)
+
 @onready var timer = $Timer
 
 
@@ -57,7 +60,7 @@ func perform_attack():
 		can_attack = false
 		is_attacking = true
 		var attack_animation = attack_directions.get(attacking_entity.facing)
-		attacking_entity.sprite.play(attack_animation)
+		sprite.play(attack_animation)
 		timer.wait_time = attacking_entity.attack_cooldown
 		timer.start()
 		for enemy in hurtbox.enemies_in_range:
