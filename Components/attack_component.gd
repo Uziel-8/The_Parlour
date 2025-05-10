@@ -44,24 +44,22 @@ func _ready() -> void:
 	else:
 		print("no trigger source has been attached to this component ;_;")
 	
+	
 
 func _process(delta: float) -> void:
 	pass
 
+		
+
+
 func perform_attack():
-	print("perform_attack triggered")
 	if can_attack:
-		print("I can attack!!")
 		can_attack = false
+		is_attacking = true
 		var attack_animation = attack_directions.get(attacking_entity.facing)
 		attacking_entity.sprite.play(attack_animation)
-		is_attacking = true
-		print("the attack cooldown of the attacker is: ", attacking_entity.attack_cooldown)
 		timer.wait_time = attacking_entity.attack_cooldown
-		print("the cooldown of the timer is: ", timer.wait_time)
 		timer.start()
-		if len(hurtbox.enemies_in_range) == 0:
-			print("there are no enemies in range ;_;")
 		for enemy in hurtbox.enemies_in_range:
 			print("applying damage to enemies in range.")
 			enemy.apply_damage(attacking_entity.damage, attacking_entity)

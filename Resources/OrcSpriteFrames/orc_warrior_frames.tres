@@ -1,4 +1,4 @@
-[gd_resource type="SpriteFrames" load_steps=72 format=3 uid="uid://d1lapmk4xmg8i"]
+[gd_resource type="SpriteFrames" load_steps=70 format=3 uid="uid://d1lapmk4xmg8i"]
 
 [ext_resource type="Texture2D" uid="uid://cuv5cr8ti4t34" path="res://Graphics/Enemies/Orc2/Orc2_idle/orc2_idle_full.png" id="1_2f70u"]
 [ext_resource type="Texture2D" uid="uid://rypbmomkybw7" path="res://Graphics/Enemies/Orc2/Orc2_attack/orc2_attack_full.png" id="1_6ni2x"]
@@ -35,14 +35,6 @@ region = Rect2(384, 0, 64, 64)
 [sub_resource type="AtlasTexture" id="AtlasTexture_6mk7n"]
 atlas = ExtResource("1_6ni2x")
 region = Rect2(448, 0, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8pxk3"]
-atlas = ExtResource("1_6ni2x")
-region = Rect2(0, 128, 64, 64)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_c3xs6"]
-atlas = ExtResource("1_6ni2x")
-region = Rect2(64, 128, 64, 64)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_cb0pf"]
 atlas = ExtResource("1_6ni2x")
@@ -309,12 +301,6 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_8pxk3")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_c3xs6")
-}, {
-"duration": 1.0,
 "texture": SubResource("AtlasTexture_cb0pf")
 }, {
 "duration": 1.0,
@@ -334,7 +320,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack_left",
-"speed": 5.0
+"speed": 3.0
 }, {
 "frames": [{
 "duration": 1.0,

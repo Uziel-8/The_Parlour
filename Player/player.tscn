@@ -657,6 +657,7 @@ collision_mask = 8
 script = ExtResource("1_btcbx")
 
 [node name="MovementComponent" parent="." instance=ExtResource("3_gwnis")]
+input_component_path = NodePath("../InputComponent")
 
 [node name="EnvironmentCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)
