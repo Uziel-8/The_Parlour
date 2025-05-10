@@ -6,15 +6,15 @@ signal basic_attack
 
 
 func _process(delta: float) -> void:
-    handle_move_input()
+    handle_move_input(delta)
 
 func _input(event: InputEvent) -> void:
     if event.is_action_pressed("left_click"):
         basic_attack.emit()
 
-func handle_move_input():
+func handle_move_input(delta: float):
     var direction = Input.get_vector("left", "right", "up", "down")
-    # if direction != Vector2.ZERO:
-    #     move_command.emit(direction)
+    if direction != Vector2.ZERO:
+        move_command.emit(direction)
 
 
