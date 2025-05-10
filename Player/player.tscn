@@ -669,6 +669,9 @@ frame = 7
 frame_progress = 1.0
 
 [node name="AttackComponent" parent="." instance=ExtResource("12_5htga")]
+hurtbox_component_path = NodePath("../HurtboxComponent")
+trigger_source_path = NodePath("../InputComponent")
+movement_component_path = NodePath("../MovementComponent")
 
 [node name="HurtboxComponent" parent="." instance=ExtResource("16_b1ygp")]
 collision_mask = 2
@@ -683,11 +686,11 @@ texture = ExtResource("4_pisgm")
 position = Vector2(-21.5, -6.5)
 shape = SubResource("RectangleShape2D_pisgm")
 
-[node name="HitBoxComponent" parent="." instance=ExtResource("19_o28un")]
+[node name="HitBoxComponent" parent="." groups=["damageable"] instance=ExtResource("19_o28un")]
 position = Vector2(-1, 9)
 collision_mask = 54
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxComponent" groups=["damageable"]]
 position = Vector2(1.5, -8.5)
 rotation = -1.57079
 shape = SubResource("RectangleShape2D_n471f")

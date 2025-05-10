@@ -5,10 +5,11 @@
 
 [resource]
 script = ExtResource("1_ygajs")
-name = "orc warrior"
 health = 100
 damage = 20
+attack_range = 30
 exp_drop = 50
+attack_cooldown = 3.0
 speed = 70.0
 acceleration_time = 2.5
 friction = 1.0

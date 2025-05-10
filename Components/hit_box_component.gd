@@ -12,7 +12,7 @@ func apply_damage(damage: int, source):
 	
 	
 	# not sure how I feel about holding this logic here. 
-	if source != null:
+	if source != null and source.is_in_group("players"):
 		if parent.health <= 0 and source.exp != null:
 			source.exp += parent.exp_drop
 			print("source gained ", parent.exp_drop, " exp!!!")

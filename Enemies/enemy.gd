@@ -11,12 +11,15 @@ var follow_speed: int
 var wander_speed: int
 var initial_state: String
 var move_direction : Vector2
-var facing: String
+var facing: Vector2
+var attack_cooldown: float
 
 @onready var health_bar = $VBoxContainer/TextureProgressBar
 @export var stats: orc_data
 @onready var sprite = $AnimatedSprite2D
+@onready var attack_component = $AttackComponent
 @onready var hurtbox_component = $HurtboxComponent
+@onready var hitbox_component = $HitBoxComponent
 
 func _ready() -> void:
 	# what is the point in doing this if in the state components we are just grabbing the whole stats property directly?
@@ -31,11 +34,12 @@ func _ready() -> void:
 		wander_speed = stats.wander_speed
 		initial_state = stats.initial_state
 		exp_drop = stats.exp_drop
+		attack_cooldown = stats.attack_cooldown
 
 		if stats.sprite_frames != null:
 			sprite.sprite_frames = stats.sprite_frames
 			sprite.play("idle_front")
-			facing = "front"
+			facing = Vector2(0, 1)
 
 
 
@@ -58,7 +62,8 @@ func die():
 
 # Refector this into a hurtbox_component
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("someone entered me!!")
-	if body.is_in_group("players"):
-		var hit_box_component = body.get_node("HitBoxComponent")
-		hit_box_component.apply_damage(damage, null)
+	# print("someone entered me!!")
+	# if body.is_in_group("players"):
+	# 	var hit_box_component = body.get_node("HitBoxComponent")
+	# 	hit_box_component.apply_damage(damage, null)
+	pass	

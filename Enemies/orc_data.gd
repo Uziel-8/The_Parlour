@@ -6,6 +6,7 @@ extends Resource
 @export var damage: int = 20
 @export var attack_range: int = 30
 @export var exp_drop: int = 50
+@export var attack_cooldown: float = 1.0
 
 @export var speed: float =   70.0
 @export var acceleration_time: float = 2.5

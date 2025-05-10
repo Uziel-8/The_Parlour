@@ -22,15 +22,16 @@ func Enter():
 	player = get_tree().get_first_node_in_group("players")
 
 func Physics_Update(delta: float):
-	var direction = player.global_position - enemy.global_position
-	
-	if direction.length() > 25:
-		enemy.velocity = direction.normalized() * move_speed
-		enemy.move_direction = direction
-	else:
-		enemy.velocity = Vector2()
-	
-	if direction.length() > follow_range:
-		Transitioned.emit(self, "wander")
-	elif direction.length() < attack_range:
-		Transitioned.emit(self, "attack")
+	if player != null:
+		var direction = player.global_position - enemy.global_position
+		
+		if direction.length() > 25:
+			enemy.velocity = direction.normalized() * move_speed
+			enemy.move_direction = direction
+		else:
+			enemy.velocity = Vector2()
+		
+		if direction.length() > follow_range:
+			Transitioned.emit(self, "wander")
+		elif direction.length() < attack_range:
+			Transitioned.emit(self, "attack")
