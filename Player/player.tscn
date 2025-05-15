@@ -1,4 +1,4 @@
-[gd_scene load_steps=103 format=3 uid="uid://c6fvh6mqpsccm"]
+[gd_scene load_steps=105 format=3 uid="uid://c6fvh6mqpsccm"]
 
 [ext_resource type="Script" uid="uid://bwdtqqq8ouobe" path="res://Player/player.gd" id="1_btcbx"]
 [ext_resource type="Texture2D" uid="uid://eum6mqc8hx7v" path="res://Graphics/Character/SpriteSheets/2_Template_Run_Left-Sheet.png" id="2_k53q1"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dqv0ijudyg28l" path="res://Components/hurtbox_component.tscn" id="16_b1ygp"]
 [ext_resource type="PackedScene" uid="uid://3noovpgo1vu6" path="res://Player/inventory.tscn" id="19_n471f"]
 [ext_resource type="PackedScene" uid="uid://cgo2oadeh6hlv" path="res://Components/hit_box_component.tscn" id="19_o28un"]
+[ext_resource type="PackedScene" uid="uid://6q7y5252tuh4" path="res://Components/input_component.tscn" id="20_n471f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b1ygp"]
 radius = 3.0
@@ -657,6 +658,7 @@ collision_mask = 8
 script = ExtResource("1_btcbx")
 
 [node name="MovementComponent" parent="." instance=ExtResource("3_gwnis")]
+input_component_path = NodePath("../input_component")
 
 [node name="EnvironmentCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)
@@ -670,6 +672,7 @@ frame_progress = 1.0
 
 [node name="AttackComponent" parent="." instance=ExtResource("12_5htga")]
 hurtbox_component_path = NodePath("../HurtboxComponent")
+trigger_source_path = NodePath("../input_component")
 movement_component_path = NodePath("../MovementComponent")
 sprite_path = NodePath("../AnimatedSprite2D")
 
@@ -696,3 +699,5 @@ rotation = -1.57079
 shape = SubResource("RectangleShape2D_n471f")
 
 [node name="inventory" parent="." instance=ExtResource("19_n471f")]
+
+[node name="input_component" parent="." instance=ExtResource("20_n471f")]
