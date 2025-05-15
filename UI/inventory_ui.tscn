@@ -1,0 +1,83 @@
+[gd_scene load_steps=5 format=3 uid="uid://ck3mwf63ctt1g"]
+
+[ext_resource type="Texture2D" uid="uid://c6vb81y8tg04a" path="res://Graphics/Items/Crafting Materials/Coal.png" id="1_dk10o"]
+[ext_resource type="Script" uid="uid://dle17y5rk3qu8" path="res://UI/inventory_ui.gd" id="1_t6nog"]
+[ext_resource type="Texture2D" uid="uid://db08kmrm2vq5j" path="res://Graphics/Items/Crafting Materials/Iron Bar.png" id="2_t6nog"]
+[ext_resource type="Texture2D" uid="uid://bfxcujf6q4vmv" path="res://Graphics/Items/Crafting Materials/Iron Ore.png" id="3_6128g"]
+
+[node name="inventory_ui" type="CanvasLayer"]
+script = ExtResource("1_t6nog")
+
+[node name="GridContainer" type="GridContainer" parent="."]
+visible = false
+offset_left = 66.0
+offset_top = 4.0
+offset_right = 396.0
+offset_bottom = 190.0
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("1_dk10o")
+
+[node name="TextureRect2" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("2_t6nog")
+
+[node name="TextureRect3" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect4" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect5" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect6" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect7" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+
+[node name="TextureRect8" type="TextureRect" parent="GridContainer"]
+layout_mode = 2
+texture = ExtResource("3_6128g")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+offset_right = 122.0
+offset_bottom = 122.0
+
+[node name="HSplitContainer" type="HSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer/HSplitContainer"]
+layout_mode = 2
+texture = ExtResource("1_dk10o")
+expand_mode = 3
+
+[node name="Label" type="Label" parent="VBoxContainer/HSplitContainer"]
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer2" type="HSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect2" type="TextureRect" parent="VBoxContainer/HSplitContainer2"]
+layout_mode = 2
+texture = ExtResource("2_t6nog")
+expand_mode = 3
+
+[node name="Label2" type="Label" parent="VBoxContainer/HSplitContainer2"]
+layout_mode = 2
+text = "0"
+
+[node name="HSplitContainer3" type="HSplitContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureRect3" type="TextureRect" parent="VBoxContainer/HSplitContainer3"]
+layout_mode = 2
+texture = ExtResource("3_6128g")
+expand_mode = 3
+
+[node name="Label3" type="Label" parent="VBoxContainer/HSplitContainer3"]
+layout_mode = 2
+text = "0"

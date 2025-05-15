@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://dt8exe0wn35gs"]
+[gd_scene load_steps=9 format=4 uid="uid://dt8exe0wn35gs"]
 
 [ext_resource type="Texture2D" uid="uid://sku270fmy6tl" path="res://Graphics/TileSet/Craftpix tilesets/House/exterior.png" id="1_ll1bl"]
 [ext_resource type="PackedScene" uid="uid://c6fvh6mqpsccm" path="res://Player/player.tscn" id="2_arsda"]
 [ext_resource type="PackedScene" uid="uid://cogsh01cc4imr" path="res://UI/ui.tscn" id="3_arsda"]
 [ext_resource type="PackedScene" uid="uid://chhko57ndar0v" path="res://Enemies/orc_spawner.tscn" id="4_dgq3b"]
 [ext_resource type="PackedScene" uid="uid://vtmct6njumdm" path="res://Objects/chest.tscn" id="5_bcgyv"]
+[ext_resource type="PackedScene" uid="uid://ck3mwf63ctt1g" path="res://UI/inventory_ui.tscn" id="6_fbld2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kbe2v"]
 texture = ExtResource("1_ll1bl")
@@ -769,3 +770,5 @@ position = Vector2(-51, -161)
 
 [node name="Chest" parent="." instance=ExtResource("5_bcgyv")]
 position = Vector2(83, -48)
+
+[node name="inventory_ui" parent="." instance=ExtResource("6_fbld2")]
