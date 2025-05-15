@@ -19,7 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dqv0ijudyg28l" path="res://Components/hurtbox_component.tscn" id="16_b1ygp"]
 [ext_resource type="PackedScene" uid="uid://3noovpgo1vu6" path="res://Player/inventory.tscn" id="19_n471f"]
 [ext_resource type="PackedScene" uid="uid://cgo2oadeh6hlv" path="res://Components/hit_box_component.tscn" id="19_o28un"]
-[ext_resource type="PackedScene" uid="uid://6q7y5252tuh4" path="res://Components/input_component.tscn" id="20_n471f"]
+[ext_resource type="PackedScene" path="res://Components/input_component.tscn" id="20_n471f"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_b1ygp"]
 radius = 3.0

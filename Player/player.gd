@@ -20,6 +20,7 @@ var facing: Vector2 = Vector2.DOWN
 @onready var movement_component = $MovementComponent
 @onready var hurtbox_component = $HurtboxComponent
 @onready var hitbox_component = $HitBoxComponent
+@onready var inventory = $inventory
 @onready var sprite = $AnimatedSprite2D
 
 
