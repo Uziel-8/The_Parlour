@@ -1,4 +1,4 @@
-[gd_scene load_steps=104 format=3 uid="uid://c6fvh6mqpsccm"]
+[gd_scene load_steps=103 format=3 uid="uid://c6fvh6mqpsccm"]
 
 [ext_resource type="Script" uid="uid://bwdtqqq8ouobe" path="res://Player/player.gd" id="1_btcbx"]
 [ext_resource type="Texture2D" uid="uid://eum6mqc8hx7v" path="res://Graphics/Character/SpriteSheets/2_Template_Run_Left-Sheet.png" id="2_k53q1"]
@@ -657,7 +657,6 @@ collision_mask = 8
 script = ExtResource("1_btcbx")
 
 [node name="MovementComponent" parent="." instance=ExtResource("3_gwnis")]
-input_component_path = NodePath("../InputComponent")
 
 [node name="EnvironmentCollision" type="CollisionShape2D" parent="."]
 position = Vector2(0, 9)
@@ -671,7 +670,6 @@ frame_progress = 1.0
 
 [node name="AttackComponent" parent="." instance=ExtResource("12_5htga")]
 hurtbox_component_path = NodePath("../HurtboxComponent")
-trigger_source_path = NodePath("../InputComponent")
 movement_component_path = NodePath("../MovementComponent")
 sprite_path = NodePath("../AnimatedSprite2D")
 
